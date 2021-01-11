@@ -20,4 +20,7 @@ test('getPath', () => {
     { path: 'a-f', distance: 2 },
     { path: 'a-c-d-f', distance: 3 },
   ]);
+
+  expect(() => g.getPath('ddd', 'bbbb')).toThrow(new Error(`Can't find ddd or bbbb`));
+  expect(() => g.addEdge('ddd', 'bbbb', { distance: 3 })).toThrow(new Error(`Can't find ddd or bbbb`));
 });
