@@ -1,9 +1,9 @@
-import { commonSubStr } from '../src/index';
+import { commonSubStr, LCS } from '../src/index';
 
 [commonSubStr].forEach((fn) => {
   test(fn.name, () => {
     console.time(fn.name);
-    const res = commonSubStr(
+    const res = fn(
       `Nobis qui accusantium quidem quia consequatur harum. Nesciunt ex ullam officia minima cupiditate recusandae possimus nihil. Quasi earum at aperiam iusto tempore eum.
    Veritatis unde odit et officia aliquam. Aperiam doloremque deserunt unde ea. Doloribus eos quas ipsam dignissimos dolores modi aut nemo. Illo sunt et assumenda ratione. Ducimus magni ut sunt assumenda iure qui dignissimos. Omnis est nam voluptatum consectetur consequatur maxime.
    Commodi iste sunt id. Officiis placeat officia accusamus ipsum voluptatem nihil ut veniam modi. Voluptatem sed placeat. Maxime sint quaerat pariatur.
@@ -22,15 +22,10 @@ import { commonSubStr } from '../src/index';
       `Since it's rich text, you can do things like turn a selection of text bold, or add a semantically rendered block quote in the middle of theDolor est et debitis est asperiorespage, like this:`,
     );
     console.timeEnd(fn.name);
-  // const res = fn('aabb','ab')
     expect(res).toBe(`Dolor est et debitis est asperiores`);
   });
 });
 
-// console.time('dp');
-// dpFib(20)
-// console.timeEnd('dp');
-
-// console.time('re');
-// recursiveFib(20)
-// console.timeEnd('re');
+test('LCS', () => {
+  expect(LCS('bdcaba2342', 'abcbdab42')).toBe('bdab42');
+});

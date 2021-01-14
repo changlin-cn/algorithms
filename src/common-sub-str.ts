@@ -19,37 +19,60 @@ export function commonSubStr(str1: string, str2: string): string {
   }
   return '';
 }
-/*
-export function commonSubStr2(str1: string, str2: string): string {
-  if (str1 === '' || str2 === '') {
-    return '';
+
+/**
+ * 获取最长公共子序列
+ * @param {string} word1
+ * @param {string} word2
+ */
+export function LCS(word1: string, word2: string): string {
+  const table: number[][] = [];
+
+  for (let i = 0; i <= word1.length; i++) {
+    table[i] = [];
+    for (let j = 0; j <= word2.length; j++) {
+      table[i][j] = 0;
+    }
   }
-  const shorter = (str1.length < str2.length ? str1 : str2).split('');
-  const longer = (str1.length >= str2.length ? str1 : str2).split('');
-  for (let i = shorter.length; i > 0; i--) {
-    for (let j = 0; j + i < shorter.length + 1; j++) {
-      const subStr = shorter.slice(j, j + i);
-      for (let k = 0; k + i < longer.length + 1; k++) {
-        const temp = longer.slice(k, k + i);
-        if (isSamePermutation(subStr, temp)) {
-          return subStr.join('');
+
+  for (let i = 1; i <= word1.length; i++) {
+    for (let j = 1; j <= word2.length; j++) {
+      if (word1[i - 1] === word2[j - 1]) {
+        table[i][j] = table[i - 1][j - 1] + 1;
+      } else if (table[i - 1][j] >= table[i][j - 1]) {
+        table[i][j] = table[i - 1][j];
+      } else {
+        table[i][j] = table[i][j - 1];
+      }
+    }
+  }
+  // console.log(table);
+  const res = [];
+  let jStart = word2.length;
+  loop1: for (let i = word1.length; i > 0; i--) {
+    for (let j = jStart; j > 0; j--) {
+      if (
+        table[i][j] === table[i - 1][j - 1] + 1 &&
+        table[i - 1][j] === table[i - 1][j - 1] &&
+        table[i][j - 1] === table[i - 1][j - 1]
+      ) {
+        res.unshift(word1[i - 1]);
+        jStart = j - 1;
+        continue loop1;
+      } else {
+        if (i > 1) {
+          continue loop1;
         }
       }
     }
   }
-  return '';
+  // console.log(res);
+  return res.join('');
 }
 
-function isSamePermutation(arr1: unknown[], arr2: unknown[]): boolean {
-  for (let i = 0; i < arr1.length; i++) {
-    if (arr1[i] !== arr2[i]) {
-      return false;
-    }
-  }
-  return true;
-}
+/*
 
-export function commonSubStr3(word1: string, word2: string): string {
+export function LCS(word1: string, word2: string): string {
   let max = 0;
   let index = 0;
   const lcsarr = new Array(word1.length + 1);
@@ -89,4 +112,5 @@ export function commonSubStr3(word1: string, word2: string): string {
     return str;
   }
 }
-*/
+
+ */

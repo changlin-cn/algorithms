@@ -1,3 +1,3 @@
 export { Graph } from './graph';
 export { recursiveFib, dpFib } from './fibonacci';
-export { commonSubStr } from './common-sub-str';
+export { commonSubStr, LCS } from './common-sub-str';
