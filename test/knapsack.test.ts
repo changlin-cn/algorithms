@@ -1,6 +1,6 @@
-import { knapsackSimple } from '../src/index';
+import { simpleKnapsack } from '../src/index';
 
-[knapsackSimple].forEach((fn) => {
+[simpleKnapsack].forEach((fn) => {
   test(fn.name, () => {
     expect(
       fn(5, [

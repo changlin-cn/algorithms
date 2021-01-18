@@ -14,7 +14,7 @@ interface item {
  * @param {number} items[].value -物品价值
  * @returns {number}
  */
-export function knapsackSimple(capacity: number, items: item[]): number {
+export function simpleKnapsack(capacity: number, items: item[]): number {
   const subsets = getSubsets(items);
   const res = subsets
     .map((n) =>
