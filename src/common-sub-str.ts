@@ -51,18 +51,21 @@ export function LCS(word1: string, word2: string): string {
   let jStart = word2.length;
   loop1: for (let i = word1.length; i > 0; i--) {
     for (let j = jStart; j > 0; j--) {
-      if (
-        table[i][j] === table[i - 1][j - 1] + 1 &&
-        table[i - 1][j] === table[i - 1][j - 1] &&
-        table[i][j - 1] === table[i - 1][j - 1]
-      ) {
+      const leftTop = table[i - 1][j - 1];
+      const left = table[i][j - 1];
+      const top = table[i - 1][j];
+      const current = table[i][j];
+      // debugger
+      if (current === leftTop + 1 && left === leftTop && top === leftTop) {
         res.unshift(word1[i - 1]);
         jStart = j - 1;
         continue loop1;
-      } else {
-        if (i > 1) {
-          continue loop1;
-        }
+      }
+      if (top === leftTop && left > leftTop) {
+        continue;
+      }
+      if (i > 1) {
+        continue loop1;
       }
     }
   }

@@ -29,4 +29,5 @@ import { commonSubStr, LCS } from '../src/index';
 test('LCS', () => {
   expect(LCS('bdcaba2342', 'abcbdab42')).toBe('bdab42');
   expect(LCS('ABBCC', 'DBBCC')).toBe('BBCC');
+  expect(LCS('ABBCD', 'DBBDE')).toBe('BBD');
 });
