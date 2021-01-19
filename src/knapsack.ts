@@ -1,9 +1,36 @@
 import { getSubsets } from './get-subsets';
 import { max } from './max-min';
+import { heapSort } from './sort/index';
+
+/**
+ * 背包问题:给定一组物品，每种物品都有自己的重量和价格，在限定的总重量内，我们如何选择，才能使得物品的总价格最高
+ */
 
 interface item {
   value: number;
   size: number;
+}
+
+/**
+ * 背包问题 贪心算法
+ * @param capacity -背包容量
+ * @param {Object[]} items -物品
+ * @param {number} items[].size -物品尺寸
+ * @param {number} items[].value -物品价值
+ * @returns {number}
+ */
+export function greedyKnapsack(capacity: number, items: item[]): number {
+  const temp = heapSort(items, (a, b) => (a.value / a.size > b.value / b.size ? -1 : 0));
+  let res = 0;
+  let surplus = capacity;
+  while (surplus > 0 && temp.length > 0) {
+    const first = temp.shift() as item;
+    if (first.size <= surplus) {
+      res += first.value;
+      surplus -= first.size;
+    }
+  }
+  return res;
 }
 
 /**
@@ -38,7 +65,7 @@ export function dpKnapsack(capacity: number, items: item[]): number {
 }
 
 /**
- * 背包问题 简单暴力求解（不推荐，可能会内存溢出），找出所有可能的解，然后返回最大值
+ * 背包问题 简单暴力求解（不推荐，可能会内存溢出）；原理是找出所有可能的解，然后返回最大值
  * @param capacity -背包容量
  * @param {Object[]} items -物品
  * @param {number} items[].size -物品尺寸
