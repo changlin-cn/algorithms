@@ -7,6 +7,37 @@ interface item {
 }
 
 /**
+ * 背包问题 动态规划
+ * @param capacity -背包容量
+ * @param {Object[]} items -物品
+ * @param {number} items[].size -物品尺寸
+ * @param {number} items[].value -物品价值
+ * @returns {number}
+ */
+export function dpKnapsack(capacity: number, items: item[]): number {
+  const table: number[][] = [];
+  for (let i = 0; i <= items.length; i++) {
+    table[i] = [];
+    for (let j = 0; j <= capacity; j++) {
+      table[i][j] = 0;
+    }
+  }
+
+  for (let i = 1; i <= items.length; i++) {
+    const current = items[i - 1];
+    for (let j = 1; j <= capacity; j++) {
+      if (current.size <= j) {
+        table[i][j] = max([current.value + table[i - 1][j - current.size], table[i - 1][j]]);
+      } else {
+        table[i][j] = table[i - 1][j];
+      }
+    }
+  }
+  //   console.log(table);
+  return table[items.length][capacity];
+}
+
+/**
  * 背包问题 简单算法
  * @param capacity -背包容量
  * @param {Object[]} items -物品
