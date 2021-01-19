@@ -38,7 +38,7 @@ export function dpKnapsack(capacity: number, items: item[]): number {
 }
 
 /**
- * 背包问题 简单算法
+ * 背包问题 简单暴力求解（不推荐，可能会内存溢出），找出所有可能的解，然后返回最大值
  * @param capacity -背包容量
  * @param {Object[]} items -物品
  * @param {number} items[].size -物品尺寸
