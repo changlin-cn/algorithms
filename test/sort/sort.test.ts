@@ -80,6 +80,11 @@ import {
   test(`${fn.name} desc;int[]`, () => {
     expect(fn(dataRandom, (a, b) => b - a)).toEqual(dataRandomDesc);
   });
+
+  test(`${fn.name} array length <= 1`, () => {
+    expect(fn([0])).toEqual([0]);
+    expect(fn([])).toEqual([]);
+  });
 });
 
 [countingSort, radixSort].forEach((fn) => {
@@ -96,5 +101,10 @@ import {
   });
   test(`${fn.name} desc;int[]`, () => {
     expect(fn(dataRandom, (n) => n, 'desc')).toEqual(dataRandomDesc);
+  });
+
+  test(`${fn.name} array length <= 1`, () => {
+    expect(fn([0])).toEqual([0]);
+    expect(fn([])).toEqual([]);
   });
 });

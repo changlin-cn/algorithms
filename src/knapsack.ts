@@ -60,7 +60,8 @@ export function dpKnapsack(capacity: number, items: item[]): number {
       }
     }
   }
-  //   console.log(table);
+  //   console.log(items)
+  //     console.log(table);
   return table[items.length][capacity];
 }
 
