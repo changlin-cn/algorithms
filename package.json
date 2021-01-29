@@ -14,7 +14,8 @@
     "test": "jest",
     "build": "rollup -c",
     "precommit": "npm run test && lint-staged",
-    "op-time-sort": "ts-node  --project tsconfig.server.json operation-time/sort.ts"
+    "op-time-sort": "ts-node  --project tsconfig.server.json operation-time/sort.ts",
+    "changelog":"conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "husky": {
     "hooks": {
@@ -52,6 +53,7 @@
     "@types/react": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^4.11.0",
     "@typescript-eslint/parser": "^4.11.0",
+    "conventional-changelog-cli": "^2.1.1",
     "eslint": "^7.16.0",
     "eslint-plugin-prettier": "^3.3.0",
     "eslint-plugin-react": "^7.21.5",
