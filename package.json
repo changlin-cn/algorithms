@@ -13,8 +13,8 @@
   "scripts": {
     "test": "jest",
     "build:js": "rollup -c",
-    "build": "npm run build:js && npm run changelog && npm run doc",
-    "release": "npm run build && standard-version",
+    "build:all": "npm run build:js && npm run changelog && npm run doc",
+    "release": "npm run build:all && standard-version",
     "precommit": "npm run test && lint-staged",
     "op-time-sort": "ts-node  --project tsconfig.server.json operation-time/sort.ts",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
