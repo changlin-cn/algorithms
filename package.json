@@ -1,6 +1,6 @@
 {
   "name": "@hechanglin/algorithms",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "algorithms",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
