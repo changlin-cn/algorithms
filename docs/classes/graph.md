@@ -39,7 +39,7 @@ Name | Type | Description |
 
 **Returns:** [*Graph*](graph.md)
 
-Defined in: [graph.ts:14](https://github.com/changlin-cn/algorithms/blob/8594113/src/graph.ts#L14)
+Defined in: [graph.ts:14](https://github.com/changlin-cn/algorithms/blob/9a5eaf9/src/graph.ts#L14)
 
 ## Properties
 
@@ -49,7 +49,7 @@ Defined in: [graph.ts:14](https://github.com/changlin-cn/algorithms/blob/8594113
 
 边
 
-Defined in: [graph.ts:31](https://github.com/changlin-cn/algorithms/blob/8594113/src/graph.ts#L31)
+Defined in: [graph.ts:31](https://github.com/changlin-cn/algorithms/blob/9a5eaf9/src/graph.ts#L31)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 顶点
 
-Defined in: [graph.ts:26](https://github.com/changlin-cn/algorithms/blob/8594113/src/graph.ts#L26)
+Defined in: [graph.ts:26](https://github.com/changlin-cn/algorithms/blob/9a5eaf9/src/graph.ts#L26)
 
 ## Methods
 
@@ -77,7 +77,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [graph.ts:95](https://github.com/changlin-cn/algorithms/blob/8594113/src/graph.ts#L95)
+Defined in: [graph.ts:95](https://github.com/changlin-cn/algorithms/blob/9a5eaf9/src/graph.ts#L95)
 
 ___
 
@@ -97,7 +97,7 @@ Name | Type | Description |
 
 **Returns:** *void*
 
-Defined in: [graph.ts:39](https://github.com/changlin-cn/algorithms/blob/8594113/src/graph.ts#L39)
+Defined in: [graph.ts:39](https://github.com/changlin-cn/algorithms/blob/9a5eaf9/src/graph.ts#L39)
 
 ___
 
@@ -116,4 +116,4 @@ Name | Type | Description |
 
 **Returns:** { `distance`: *number* ; `path`: *string*  }[]
 
-Defined in: [graph.ts:54](https://github.com/changlin-cn/algorithms/blob/8594113/src/graph.ts#L54)
+Defined in: [graph.ts:54](https://github.com/changlin-cn/algorithms/blob/9a5eaf9/src/graph.ts#L54)
